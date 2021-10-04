@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crud ajax</title>
+</head>
+<body>
+    <h1>CRUD CON AJAX</h1>
+    Nombre: <input id="inputNombre" type="text">
+    <br>
+    Apellido:<input id="inputApellido" type="text">
+    <br>
+    <button type="submit" onclick="agregarActor()">Agregar Actor</button>
+    <br>
+    <p>estado</p><p id="el estado"></p>
+    <script>
+        function agregarActor(){
+            XHR = new XMLHttpRequest()
+            XHR.onload = function(){
+                document.getElementById("estado").innerHTML=XHR.responseText
+            }
+            let nombre=document.getElementById("inputNombre").value
+            let apellido=document.getElementById("inputApellido").value
+            XHR.open("GET","servidor.php?&nombre="+nombre+"&apellido="+apellido,true)
+            XHR.send()
+        }
+    </script>
+</body>
+</html>
