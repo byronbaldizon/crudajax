@@ -3,10 +3,12 @@
 $severname="localhost";
 $username="root";
 $password="";
-$dbname="crud";
+$dbname="hollywood";
 
 $conn=mysqli_connect($severname,$username,$password,$dbname);
-
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
 
 ?>
